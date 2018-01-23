@@ -2,7 +2,7 @@ package sp.fr.conference;
 
 
 import android.os.Bundle;
-import android.support.v4.app.Fragment;
+import android.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -11,10 +11,10 @@ import android.view.ViewGroup;
 /**
  * A simple {@link Fragment} subclass.
  */
-public class AdministratorListingWaitingFragment extends Fragment {
+public class AdministratorGestionConferenceFragment extends Fragment {
 
 
-    public AdministratorListingWaitingFragment() {
+    public AdministratorGestionConferenceFragment() {
         // Required empty public constructor
     }
 
@@ -23,7 +23,7 @@ public class AdministratorListingWaitingFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_administrator_listing_waiting, container, false);
+        return inflater.inflate(R.layout.fragment_administrator_gestion_conference, container, false);
     }
 
 }

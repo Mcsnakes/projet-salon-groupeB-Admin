@@ -13,7 +13,7 @@
     <TextView
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:id="@+id/themeListTextItemWaiting"
+        android:id="@+id/ListTextItemConferenceStatut"
         android:layout_weight="0.8"
         android:paddingLeft="20dp"
         android:visible="true"
@@ -27,12 +27,11 @@
         >
 
         <ImageView
+            android:id="@+id/imageViewStatutConference"
             android:layout_width="50dp"
             android:layout_height="50dp"
-            app:srcCompat="@drawable/ic_menu_manage"
-            android:id="@+id/imageView"
             android:visible="true"
-            />
+            app:srcCompat="@android:drawable/ic_notification_clear_all" />
 
 
     </LinearLayout>

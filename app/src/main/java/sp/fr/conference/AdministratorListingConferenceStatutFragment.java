@@ -2,14 +2,20 @@ package sp.fr.conference;
 
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.app.Fragment;
+import android.app.Service;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
+import android.support.v4.content.LocalBroadcastManager;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
 
@@ -28,15 +34,15 @@ import sp.fr.conference.model.Conference;
 /**
  * A simple {@link Fragment} subclass.
  */
-public class AdministratorListingThemeFragment extends Fragment {
+public class AdministratorListingConferenceStatutFragment extends Fragment {
 
     private FirebaseDatabase firebaseDatabase;
     private DatabaseReference themeReference;
-    private ListView themesListView ;
+    private ListView conferenceListView ;
     private List<Conference> ConferenceList;
     private ConferenceArrayAdapter adapter;
 
-    public AdministratorListingThemeFragment() {
+    public AdministratorListingConferenceStatutFragment() {
         // Required empty public constructor
     }
 
@@ -45,20 +51,38 @@ public class AdministratorListingThemeFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View view =  inflater.inflate(R.layout.fragment_administrator_listing, container, false);
+        View view =  inflater.inflate(R.layout.fragment_administrator_listin_conference_statutg, container, false);
 
         //Préparation de la base de données
         firebaseDatabase = FirebaseDatabase.getInstance();
         themeReference = firebaseDatabase.getReference().child("conference");
 
         //Rcupération de la listView
-        themesListView = view.findViewById(R.id.ListViewThemesWaiting);
+        conferenceListView = view.findViewById(R.id.ListViewThemesWaiting);
+
 
         ConferenceList = new ArrayList<>();
 
+        conferenceListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long l) {
+
+                Conference item = (Conference) parent.getItemAtPosition(position);
+                Log.i("Info System", "Click sur l'id : " + item.getId());
+
+                //On envoie les données au fragment au click sur le bouton
+                final Intent transmition = new Intent(getActivity(), AdministratorGestionConferenceFragment.class);
+                transmition.putExtra("key", item.getId());
+                LocalBroadcastManager.getInstance(getActivity()).sendBroadcast(transmition);
+
+            }
+        });
+
+
         //Instanciation de la liste
-        adapter = new ConferenceArrayAdapter(this.getActivity(), R.layout.theme_list_items_waiting , ConferenceList);
-        themesListView.setAdapter(adapter);
+        adapter = new ConferenceArrayAdapter(this.getActivity(), R.layout.theme_list_items_conference_statut, ConferenceList);
+        conferenceListView.setAdapter(adapter);
 
 
         themeReference.addListenerForSingleValueEvent(new ValueEventListener() {
@@ -114,10 +138,23 @@ public class AdministratorListingThemeFragment extends Fragment {
 
             Conference currentConference = ConferenceList.get(position);
 
-            TextView textView = view.findViewById(R.id.themeListTextItemWaiting);
+            TextView textView = view.findViewById(R.id.ListTextItemConferenceStatut);
+            //Rcupération de l'image du statut
+            ImageView imageViewStatutConference = view.findViewById(R.id.imageViewStatutConference);
+
+            String etatConference = "";
+
+            if(currentConference.getStatut() == null) {
+                imageViewStatutConference.setImageResource(R.mipmap.wait);
+            } else if(currentConference.getStatut().equals("0")){
+                imageViewStatutConference.setImageResource(R.mipmap.delete);
+            }else if(currentConference.getStatut().equals("1")){
+                //etatConference = "Validé";
+                imageViewStatutConference.setImageResource(R.mipmap.check);
+            }
 
             textView.setText(
-                    currentConference.getTitle()
+                    currentConference.getTitle() + " " + etatConference
             );
 
             return view;

@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context="sp.fr.conference.AdministratorListingThemeFragment">
+    tools:context="sp.fr.conference.AdministratorListingConferenceStatutFragment">
 
     <!-- TODO: Update blank fragment layout -->
     <TextView
