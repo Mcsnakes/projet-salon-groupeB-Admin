@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://C:\Users\Formation.M2I-JAV5-04\Desktop\ProjetTP\projet-salon-groupeB\Conference.iml" filepath="C:\Users\Formation.M2I-JAV5-04\Desktop\ProjetTP\projet-salon-groupeB\Conference.iml" />
+      <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
+      <module fileurl="file://C:\Users\Formation.M2I-JAV5-04\Desktop\ProjetTP\projet-salon-groupeB-Admin\app\app.iml" filepath="C:\Users\Formation.M2I-JAV5-04\Desktop\ProjetTP\projet-salon-groupeB-Admin\app\app.iml" />
+      <module fileurl="file://C:\Users\Formation.M2I-JAV5-04\Desktop\ProjetTP\projet-salon-groupeB\app\app.iml" filepath="C:\Users\Formation.M2I-JAV5-04\Desktop\ProjetTP\projet-salon-groupeB\app\app.iml" />
+      <module fileurl="file://C:\Users\Formation.M2I-JAV5-04\Desktop\ProjetTP\projet-salon-groupeB-Admin\projet-salon-groupeB.iml" filepath="C:\Users\Formation.M2I-JAV5-04\Desktop\ProjetTP\projet-salon-groupeB-Admin\projet-salon-groupeB.iml" />
+      <module fileurl="file://$PROJECT_DIR$/projet-salon-groupeB-Admin.iml" filepath="$PROJECT_DIR$/projet-salon-groupeB-Admin.iml" />
+    </modules>
+  </component>
+</project>

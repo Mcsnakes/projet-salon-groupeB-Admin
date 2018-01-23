@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="navigation_view">
+
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/login"
+            android:icon="@mipmap/user"
+            android:title="Connectez vous" />
+        <item
+            android:id="@+id/logOut"
+            android:icon="@mipmap/off"
+            android:title="Déconnexion" />
+        <item
+            android:id="@+id/listinfConference"
+            android:icon="@mipmap/groupeuser"
+            android:title="Liste des conférences" />
+        <item
+            android:id="@+id/myConference"
+            android:icon="@mipmap/search"
+            android:title="Mes conférences" />
+
+    </group>
+
+    <item
+        android:id="@+id/administrator"
+        android:icon="@mipmap/ic_launcher_round"
+        android:title="Administrateur" />
+
+</menu>
